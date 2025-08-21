@@ -45,7 +45,7 @@ Este portfólio é uma página web responsiva, criada para destacar meus princip
 
 ## 📸 Prévia
 
-![Prévia do Portfólio](assets/foto-de-perfil.jpg)
+![Prévia do Portfólio](assets/screenshot-portfolio.png)
 
 ## 📦 Como Executar
 
