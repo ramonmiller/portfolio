@@ -10,14 +10,6 @@ const projects = [
     },
     {
         id: 2,
-        title: "App de Delivery",
-        category: "mobile",
-        description: "Aplicativo mobile para delivery de comida com geolocalização, pagamentos e tracking em tempo real.",
-        tech: ["React Native", "Firebase", "Maps API"],
-        image: "🍕"
-    },
-    {
-        id: 3,
         title: "Dashboard Analytics",
         category: "web",
         description: "Dashboard interativo para análise de dados com gráficos dinâmicos e relatórios personalizáveis.",
@@ -25,28 +17,12 @@ const projects = [
         image: "📊"
     },
     {
-        id: 4,
+        id: 3,
         title: "Identidade Visual Tech",
         category: "design",
         description: "Criação completa de identidade visual para startup de tecnologia, incluindo logo, paleta de cores e guidelines.",
         tech: ["Figma", "Illustrator", "Photoshop"],
         image: "🎨"
-    },
-    {
-        id: 5,
-        title: "API de Microserviços",
-        category: "backend",
-        description: "Arquitetura de microserviços escalável com Docker, Kubernetes e monitoramento avançado.",
-        tech: ["Node.js", "Docker", "Kubernetes", "MongoDB"],
-        image: "⚙️"
-    },
-    {
-        id: 6,
-        title: "Sistema de Gestão",
-        category: "web",
-        description: "Sistema completo de gestão empresarial com módulos de vendas, estoque, financeiro e relatórios.",
-        tech: ["Angular", "Spring Boot", "MySQL"],
-        image: "💼"
     }
 ];
 
@@ -79,47 +55,11 @@ const certificates = [
         title: "Incode Tech School",
         institution: "Oxygeni - Ceuma",
         date: "2023 - atual",
-        description: "",
+        description: "O curso oferece trilhas de aprendizado com empresas parceiras, com projetos reais para os alunos estarem inseridos nas demandas do mercado de trabalho.",
         skills: ["Node.js", "Express", "APIs", "Microservices"],
         link: "#",
         featured: false,
         icon: "🟢"
-    },
-    {
-        id: 4,
-        title: "UX/UI Design Professional",
-        institution: "Google",
-        category: "design",
-        date: "2023",
-        description: "Certificação em design de experiência do usuário, prototipagem, pesquisa de usuário e design thinking.",
-        skills: ["UX Design", "UI Design", "Figma", "User Research"],
-        link: "#",
-        featured: true,
-        icon: "🎨"
-    },
-    {
-        id: 5,
-        title: "Scrum Master Certified",
-        institution: "Scrum Alliance",
-        category: "management",
-        date: "2022",
-        description: "Certificação em metodologias ágeis, gestão de projetos e liderança de equipes de desenvolvimento.",
-        skills: ["Scrum", "Agile", "Project Management", "Leadership"],
-        link: "#",
-        featured: false,
-        icon: "🏃"
-    },
-    {
-        id: 6,
-        title: "Python Data Science",
-        institution: "IBM",
-        category: "backend",
-        date: "2022",
-        description: "Certificação em ciência de dados com Python, machine learning, análise estatística e visualização de dados.",
-        skills: ["Python", "Data Science", "Machine Learning", "Pandas"],
-        link: "#",
-        featured: false,
-        icon: "🐍"
     }
 ];
 
