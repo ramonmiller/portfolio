@@ -206,7 +206,7 @@ function typeEffect() {
     el.textContent = firstLetter + text.slice(1, i++);
     if (i > text.length) {
       deleting = true;
-      setTimeout(typeEffect, 1500); // pausa antes de apagar
+      setTimeout(typeEffect, 5000); // pausa antes de apagar
       return;
     }
   } else {
