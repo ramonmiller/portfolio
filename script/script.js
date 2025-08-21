@@ -2,27 +2,27 @@
 const projects = [
     {
         id: 1,
-        title: "E-commerce Moderno",
         category: "web",
-        description: "Plataforma completa de e-commerce com React, Node.js e PostgreSQL. Sistema de pagamentos integrado e painel administrativo.",
-        tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-        image: "🛒"
-    },
-    {
-        id: 2,
-        title: "Dashboard Analytics",
-        category: "web",
-        description: "Dashboard interativo para análise de dados com gráficos dinâmicos e relatórios personalizáveis.",
-        tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-        image: "📊"
+        title: "Grow Star",
+        description: "A Grow Star surgiu para resolver problemas como: falta de visibilidade para freelancers, dificuldade de acesso dos consumidores a certos serviços, pouco apoio aos MEIs e falhas na comunicação entre empresas e MEIs.",
+        tech: ["Figma", "HTML", "CSS"],
+        image: "/assets/projetos/grow-star.png"
     },
     {
         id: 3,
-        title: "Identidade Visual Tech",
-        category: "design",
-        description: "Criação completa de identidade visual para startup de tecnologia, incluindo logo, paleta de cores e guidelines.",
-        tech: ["Figma", "Illustrator", "Photoshop"],
-        image: "🎨"
+        title: "Form de Inscrição",
+        category: "web",
+        description: "No Programa Trilhas Inova, foi proposto um desafio: criar uma interface de usuário para o processo de inscrição no próprio Programa Trilhas Inova, utilizando os conhecimentos adquiridos em HTML e CSS.",
+        tech: ["Figma", "HTML", "CSS"],
+        image: "/assets/projetos/screenshot-inova-project.png"
+    },
+    {
+        id: 2,
+        title: "Airplane Game",
+        category: "game",
+        description: "No Programa Trilhas Inova, participei do curso de Programação de Jogos e, com o aprendizado, desenvolvi um jogo inspirado no Flappy Bird.",
+        tech: ["C#", "Unity"],
+        image: "/assets/projetos/screenshot-airplane-game.png"
     }
 ];
 
@@ -30,37 +30,38 @@ const projects = [
 const certificates = [
     {
         id: 1,
-        title: "Cursos da Alura",
+        title: "Cursos da Alura - 216h",
         institution: "Alura",
         date: "2024 - atual",
         description: "Desenvolvimento de jogos 2D e 3D para web e mobile utilizando a Unity. Criação de páginas web dinâmicas e responsivas com HTML, CSS e JavaScript. Lógica de programação, Git e GitHub, Game Design, autodesenvolvimento, gestão e Inteligência Artificial.",
         skills: ["Programação", "Frontend", "DevOps", "UX & UI Design", "Inovação & Gestão", "Inteligência Artificial"],
         link: "https://cursos.alura.com.br/user/ramonmiller/fullCertificate/8b01fa48b78096129684826d8de2ca13",
-        featured: true,
+        featured: false,
         icon: "a"
     },
     {
         id: 2,
-        title: "Cursos da Fundação Bradesco",
+        title: "Incode Tech School - 1300h",
+        institution: "Oxygeni - Ceuma",
+        date: "2023 - atual",
+        description: "O curso oferece trilhas de aprendizado com empresas parceiras, com projetos reais para os alunos estarem inseridos nas demandas do mercado de trabalho.",
+        skills: ["Programação", "Frontend", "UX & UI Design", "Inteligência Artificial"],
+        link: "#",
+        featured: true,
+        icon: "🟢"
+    },
+    {
+        id: 3,
+        title: "Cursos da Fundação Bradesco - 57h",
         institution: "Escola Virtual Bradesco",
         date: "2023",
         description: "Programação Orientada a Objetos (POO), Python, HTML, Desenvolvimento Web com HTML, CSS e JavaScript.",
-        skills: ["React", "JavaScript", "Testing", "Performance"],
+        skills: ["Programação Orientada a Objetos", "Python", "Desenvolvimento Web", "HTML", "CSS", "JavaScript"],
         link: "https://drive.google.com/drive/folders/1y9nmD40NDPOet8-soedo9CrVsirwPj3c?usp=sharing",
         featured: false,
         icon: "⚛️"
     },
-    {
-        id: 3,
-        title: "Incode Tech School",
-        institution: "Oxygeni - Ceuma",
-        date: "2023 - atual",
-        description: "O curso oferece trilhas de aprendizado com empresas parceiras, com projetos reais para os alunos estarem inseridos nas demandas do mercado de trabalho.",
-        skills: ["Node.js", "Express", "APIs", "Microservices"],
-        link: "#",
-        featured: false,
-        icon: "🟢"
-    }
+
 ];
 
 // Inicialização quando o DOM estiver carregado
@@ -190,7 +191,39 @@ function initializeNavigation() {
             link.classList.add('active');
         });
     });
-    
+
+
+const el = document.querySelector(".name");
+const text = "Ramon Miller";
+let i = 1; // começa a partir da segunda letra
+let deleting = false;
+
+function typeEffect() {
+  const firstLetter = text[0]; // primeira letra fixa
+
+  if (!deleting) {
+    // escrevendo a partir da segunda letra
+    el.textContent = firstLetter + text.slice(1, i++);
+    if (i > text.length) {
+      deleting = true;
+      setTimeout(typeEffect, 1500); // pausa antes de apagar
+      return;
+    }
+  } else {
+    // apagando a partir da segunda letra
+    el.textContent = firstLetter + text.slice(1, i--);
+    if (i <= 1) { // nunca apaga a primeira letra
+      deleting = false;
+      i = 1;
+    }
+  }
+
+  const speed = deleting ? 80 : 120;
+  setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+
     // Atualizar link ativo no scroll
     window.addEventListener('scroll', () => {
         const sections = document.querySelectorAll('section');
@@ -262,32 +295,32 @@ function initializeProjects() {
     
     // Renderizar projetos
     function renderProjects(projectsToShow = projects) {
-        projectsGrid.innerHTML = '';
+    projectsGrid.innerHTML = '';
+    
+    projectsToShow.forEach((project, index) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card fade-in';
+        projectCard.style.animationDelay = `${index * 0.1}s`;
+
+        // Sempre usa <img>
+        const imageContent = `<img src="${project.image}" alt="${project.title}" class="project-img">`;
+
+        projectCard.innerHTML = `
+            <div class="project-image">
+                ${imageContent}
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-category">${getCategoryName(project.category)}</p>
+                <p class="project-description">${project.description}</p>
+                <div class="project-tech">
+                    ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+            </div>
+        `;
         
-        projectsToShow.forEach((project, index) => {
-            const projectCard = document.createElement('div');
-            projectCard.className = 'project-card fade-in';
-            projectCard.style.animationDelay = `${index * 0.1}s`;
-            
-            projectCard.innerHTML = `
-                <div class="project-image">
-                    <div class="project-placeholder">${project.image}</div>
-                    <div class="project-overlay">
-                        <button class="btn btn-primary">Ver Projeto</button>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-category">${getCategoryName(project.category)}</p>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-tech">
-                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-            
-            projectsGrid.appendChild(projectCard);
-        });
+        projectsGrid.appendChild(projectCard);
+    });
         
         // Reobservar novos elementos
         const newCards = projectsGrid.querySelectorAll('.project-card');
@@ -437,7 +470,8 @@ function getCategoryName(category) {
         web: 'Desenvolvimento Web',
         mobile: 'Desenvolvimento Mobile',
         design: 'Design',
-        backend: 'Backend'
+        backend: 'Backend',
+        game: 'Desenvolvimento de Jogos'
     };
     return categories[category] || category;
 }

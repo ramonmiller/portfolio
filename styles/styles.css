@@ -17,25 +17,20 @@ body {
     overflow-x: hidden;
 }
 
-/* largura da barra de rolagem */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px; /* caso queira rolagem horizontal também */
+  height: 10px;
 }
 
-/* trilho (fundo da scrollbar) */
 ::-webkit-scrollbar-track {
   background: #000000de;
-  /* border-radius: 0px; */
 }
 
-/* polegar (parte que se move) */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--secondary-purple), var(--primary-blue), var(--accent-cyan)); /* cor da barra */
   border-radius: 10px;
 }
 
-/* polegar ao passar o mouse */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(var(--secondary-purple), var(--primary-blue), var(--accent-cyan));
 }
@@ -492,6 +487,12 @@ section {
     padding: 1.5rem;
 }
 
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--secondary-purple);
+}
+
 .skill-header {
     display: flex;
     justify-content: space-between;
@@ -573,13 +574,14 @@ section {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow);
+    border-color: var(--secondary-purple);
 }
 
-.project-image {
+.project-img {
+    width: 100%;
     height: 200px;
-    background: var(--gradient-secondary);
-    position: relative;
-    overflow: hidden;
+    object-fit: cover;
+    display: block;
 }
 
 .project-placeholder {
@@ -605,10 +607,6 @@ section {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.project-card:hover .project-overlay {
-    opacity: 1;
 }
 
 .project-content {
@@ -703,6 +701,7 @@ section {
 .certificate-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow);
+    border-color: var(--secondary-purple);
 }
 
 .certificate-card.featured {
@@ -816,6 +815,7 @@ section {
 .stat-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow);
+        border-color: var(--secondary-purple);
 }
 
 .stat-number {
@@ -951,11 +951,11 @@ section {
 }
 
 .status-indicator {
-    width: 12px;
-    height: 12px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     background: #00ff88;
-    animation: pulse 2s infinite;
+    animation: pulse 1s infinite;
 }
 
 .status span {
@@ -967,6 +967,8 @@ section {
 .footer {
     text-align: center;
     padding: 2rem 0;
+    background: rgba(10, 10, 10, 0.2);
+    /* backdrop-filter: blur(50px); */
     border-top: 1px solid var(--border-color);
     margin-top: 4rem;
     margin-bottom: -6rem;
@@ -1071,8 +1073,6 @@ section {
         flex-direction: column;
         align-items: center;
     }
-
-    
     
     .about-content {
         grid-template-columns: 1fr;
@@ -1173,22 +1173,4 @@ section {
     .stat-number {
         font-size: 2rem;
     }
-}
-
-body {
-    scrollbar-width: thin; /* Define a espessura da barra de rolagem */
-    scrollbar-color: blue orange; /* Define a cor do ícone e do fundo */
-}
-
-body::-webkit-scrollbar {
-    width: 12px; /* Define a largura da barra de rolagem */
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: blue; /* Cor do "polegar" da barra de rolagem */
-    border-radius: 6px; /* Arredonda as bordas do "polegar" */
-}
-
-body::-webkit-scrollbar-track {
-    background-color: orange; /* Cor da faixa da barra de rolagem */
 }
