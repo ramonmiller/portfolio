@@ -46,7 +46,7 @@ const certificates = [
         date: "2023 - atual",
         description: "O curso oferece trilhas de aprendizado com empresas parceiras, com projetos reais para os alunos estarem inseridos nas demandas do mercado de trabalho.",
         skills: ["Programação", "Frontend", "UX & UI Design", "Inteligência Artificial"],
-        link: "#",
+        link: "sem-link",
         featured: true,
         icon: "🟢"
     },
@@ -385,12 +385,20 @@ function initializeCertificates() {
                 <div class="cert-skills">
                     ${cert.skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}
                 </div>
-                <a href="${cert.link}" class="cert-link" target="_blank">
-                    Ver Certificado
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m9 18 6-6-6-6"/>
-                    </svg>
-                </a>
+                ${cert.link && cert.link !== 'sem-link' 
+    ? `<a href="${cert.link}" class="cert-link" target="_blank">
+          Ver Certificado
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+          </svg>
+       </a>` 
+    : `<span class="cert-link disabled">
+          Ver Certificado
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+          </svg>
+       </span>`}
+
             `;
             
             certificatesGrid.appendChild(certCard);
